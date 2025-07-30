@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+/* 全域變數（CSS 變數） */
 :root {
   --red: #d01c28;
   --grey: #2e2e2e;
@@ -10,39 +11,113 @@
   box-sizing: border-box; /* 建議加這行，讓寬度計算更直覺 */
 }
 
+ul li a {
+  all: unset;
+}
+
 body {
   font-family: "Poppins", sans-serif;
 }
 
 button {
+  /* 清除所有瀏覽器預設按鈕樣式 */
   all: unset;
+  /* 設定內距 上下 左右 */
   padding: 6px 16px;
+  /* 呼叫顏色變數 */
   background: var(--red);
   height: 32px;
+  /* 設定文字顏色 */
   color: white;
+  /*粗度體粗度 */
   font-weight: 500;
-  cursor: pointer;
 }
 
 .container {
-  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 1280px;
 }
 
 nav {
+  /* Flexbox 排版，讓容器裡的直屬子元素橫向排列（預設是 row） */
   display: flex;
   justify-content: space-between;
+  /* 外距: 上下 左右 */
   height: 72px;
+  /* Flex 容器內的子元素垂直置中，需搭配 display: flex 才有效 */
   align-items: center;
+  /* box-shadow: 水平位移 垂直位移 模糊範圍 顏色; */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 nav ul {
   display: flex;
   list-style: none;
+  /* 元素 間 留下 24px 的間距。 */
   gap: 24px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  /* calc() 是 CSS 的計算函式，語法要求運算子要與數值 分開寫，否則解析器會當作無效語法。 */
+  /* 將整個視窗高度（100vh）扣掉 72px（導覽列的高度），讓 .hero 元素剛好填滿剩下的可視區域。 */
+  height: calc(100vh - 72px);
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.hero h1 {
+  font-weight: 800;
+  line-height: 1em;
+  font-size: 4.5rem;
+}
+
+.hero p {
+  font-weight: 600;
+  color: var(--grey);
+  max-width: 350px;
+}
+
+.hero-btn {
+  display: flex;
+  gap: 40px;
+}
+
+.hero-btn button {
+  font-size: 1.4rem;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: var(--grey);
+  border: 1px solid gray;
+}
+
+.shopping p {
+  font-size: 1.5em;
+  margin: 8px 0;
+}
+
+.brand-icons {
+  display: flex;
+  gap: 20px;
 }
 
 .logo img {
-  max-width: 100px;
+  max-width: 70px;
+}
+
+.brand-icons img {
+  max-width: 50px;
+}
+
+.box-lunch img {
+  max-width: 700px;
 }
